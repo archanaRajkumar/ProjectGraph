@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphs</title>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/raphael-min.js"></script>
+<script type="text/javascript" src="lib/morris.js"></script>
+<script type="text/javascript" src="lib/angular-morris-chart.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/barGraph.js"></script>
+<script type="text/javascript" src="js/lineChart.js"></script>
+<script type="text/javascript" src="js/areaChart.js"></script>
+<script type="text/javascript" src="js/donutChart.js"></script>
+<script type="text/javascript" src="js/mainModule.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link type="text/css" rel="stylesheet" href="css/morris.css" />
+<link type="text/css" rel="stylesheet" href="css/app.css" />
+
+</head>
+
+<body ng-app="myApplication">
+    <h2>GRAPHICS</h2>
+    <div ng-controller="mainCtrl">
+    <div class="fixit hidden-xs" >
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header" >
+            <ul class="nav navbar-nav">
+            <li ng-click="toggle()" ><a><span class="glyphicon glyphicon-star"></span></a></li>
+            <li class="nav" ng-show="amIVisible" ><a href="#bar-chart">Bar Chart</a></li>
+            <li class="nav" ng-show="amIVisible" ><a href="#donut-chart">Donut chart</a></li>
+            <li class="nav" ng-show="amIVisible" ><a href="#line-chart">Line Chart</a></li>
+            <li class="nav"ng-show="amIVisible" ><a href="#area-chart">Area Chart</a></li>
+            </ul>
+            </div>
+
+        </div> 
+    </div>
+    
+</div>
+    <a name="bar-chart">
+        <div ng-app="barChartModule" ng-controller="barController"  class="component">  
+            <h3>BAR CHART</h3>
+            <bar-chart xkey="xkey" ykeys="ykeys" labels="labels" data="myModel"></bar-chart>
+        </div>
+    </a>
+    
+    <a name="area-chart" >
+        <div ng-app="areaChartModule" ng-controller="areaController" class="component">
+            <h3>AREA CHART</h3>
+            <area-chart xkey="xkey" ykeys="ykeys" labels="labels" data="myModel"></area-chart>
+        </div>
+    </a>
+  
+    <a name="donut-chart" >
+        <div ng-app="donutChartModule" ng-controller="donutController" class="component">
+             <h3>DONUT CHART</h3>
+             <donut-chart data="myModel" ></donut-chart>
+        </div>
+    </a>
+
+    <a name="line-chart">
+        <div ng-app="lineChartModule" ng-controller="lineController"  class="component">
+            <h3>LINE CHART</h3>
+            <line-chart xkey="xkey" ykeys="ykeys" labels="labels" data="myModel" ></line-chart>
+        </div>
+    </a>
+
+</body>
+</html>
